@@ -1,15 +1,33 @@
 [project]
-name = "mcp-server-template"
-version = "0.1.0"
-description = "Python MCP Server template"
+name = "jina-web-search-mcp"
+version = "1.0.0"
+description = "High-performance Jina AI Web Search MCP Server - Optimized for speed and reliability"
 readme = "README.md"
-requires-python = ">=3.13"
-authors = [{ name = "Alpic" }]
-keywords = ["mcp", "llm", "alpic", "python"]
+requires-python = ">=3.10"
+authors = [{ name = "Jina Web Search MCP" }]
+keywords = ["mcp", "llm", "search", "web", "jina", "ai", "python"]
 dependencies = [
-    "black>=25.1.0",
-    "dotenv>=0.9.9",
-    "fal-client>=0.7.0",
-    "mcp",
-    "python-dotenv>=1.1.1",
+    "mcp>=1.0.0",
+    "python-dotenv>=1.0.0",
+    "aiohttp>=3.9.0",
+    "pydantic>=2.0.0",
 ]
+
+[project.optional-dependencies]
+dev = [
+    "black>=24.0.0",
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-aiohttp>=1.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
